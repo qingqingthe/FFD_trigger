@@ -1,4 +1,4 @@
-# About
+# 说明
 
 使用FFD框架的绘制。
 
@@ -8,7 +8,7 @@ FFdraw: https://github.com/nyaoouo/FFDraw
 
 
 
-# Install
+# 安装
 
 导入ACT，并打开FFDraw即可
 
@@ -31,3 +31,11 @@ FFdraw: https://github.com/nyaoouo/FFDraw
 - [x] 猛毒喷涌
 
   
+
+# To do
+
+- [ ] 其他技能的绘制
+
+- [ ] 绘制时间的微调
+
+- [ ] bug修复？
