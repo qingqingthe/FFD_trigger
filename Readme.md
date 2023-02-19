@@ -38,10 +38,13 @@ FFdraw的安装与说明请参考: https://github.com/nyaoouo/FFDraw
 
 # To do
 
-- [ ] 其他技能的绘制
+- [ ] 坦克范围死刑的绘制
+
+- [ ] 其他有需要的绘制
 
 - [ ] 绘制时间的微调
 
-- [ ] bug修复？
+- [ ] bug修复
 
 - [ ] 视频
+
