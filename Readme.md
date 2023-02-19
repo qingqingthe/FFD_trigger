@@ -39,3 +39,5 @@ FFdraw: https://github.com/nyaoouo/FFDraw
 - [ ] 绘制时间的微调
 
 - [ ] bug修复？
+
+- [ ] 视频
