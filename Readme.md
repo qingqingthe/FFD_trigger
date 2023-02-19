@@ -1,16 +1,16 @@
 # 说明
 
-使用FFD框架的绘制。
+使用FFD框架的触发器。
 
 
 
-FFdraw: https://github.com/nyaoouo/FFDraw
+FFdraw的安装与说明请参考: https://github.com/nyaoouo/FFDraw
 
 
 
 # 安装
 
-导入ACT，并打开FFDraw即可
+同其他触发器一样，导入ACT，并打开FFDraw即可
 
 
 
@@ -20,15 +20,19 @@ FFdraw: https://github.com/nyaoouo/FFDraw
 
 ## p5s
 
-- [x] 两连冲
+- [x] 02:07两连冲
 
-- [x] 爪尾连击
+- [x] 03:26毒液喷涌（先44分摊再分散）
 
-- [x] 狂怒扫尾
+- [x] 03:26毒液风暴（先分散后44分摊）
 
-- [x] 狂怒爪击
+- [x] 03:46凶尾利爪（后前刀）
 
-- [x] 猛毒喷涌
+- [x] 03:46利爪凶尾（前后刀）
+
+- [x] 05:00毒液飞溅（双奶分摊）
+
+- [x] 05:12狂怒爪击
 
   
 
