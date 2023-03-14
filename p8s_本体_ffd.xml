@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedTrigger Enabled="false" Name="P8S-本体" Id="79a9e2b9-a8aa-4188-ad41-1eda42e6b659" RegularExpression="">
+    <Actions />
+    <Condition Enabled="false" Grouping="Or" />
+    <Conditions />
+  </ExportedTrigger>
+</TriggernometryExport>
