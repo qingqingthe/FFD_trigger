@@ -1,0 +1,935 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="55b30c7a-ccf1-46b7-9646-07aea4a67e26" Name="P8S-门神" Enabled="true">
+    <Folders>
+      <Folder Id="54fc7608-224a-42ce-849f-248d31d80d38" Name="分身机制" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="获取烈火牙（龙）" Id="b28c4ea3-a625-46ea-8be1-6bd0938d42aa" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7952:">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="烈火牙id" VariableExpression="${tid}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="获取炎之翼（凤）" Id="7c5542d1-9707-424b-b678-361e3c5971e9" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7953:">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="炎之翼id" VariableExpression="${tid}" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="创兽炎舞（计算阶段）" Id="338d5602-53a6-452a-ad1d-7b7e5d3b3034" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7950:">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="创兽次数" VariableExpression="${var:创兽次数}+1" ActionType="Variable" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="0创造幻影/切换阶段" Id="3b810e63-5008-447a-9720-efcb8ec1f2ed" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:791C:">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="创兽次数" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="P8S门神阶段" VariableExpression="2" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="1第1次分身安全区" Id="6607da03-1518-4e55-8d0e-c70ac1a6228a" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7952:" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="左右BD" LogLevel="Info" PlaySpeechMyself="True" UseTTSTextExpression="左右逼弟" UseTTSRateExpression="2" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:14},&quot;pos&quot;:[93,0,100],&quot;facing&quot;:1.571,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="左右逼弟" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[100,0,107],&quot;facing&quot;:0,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="左右逼弟" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[100,0,93],&quot;facing&quot;:3.14,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="左右逼弟" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" LogMessageText="上下AC" LogLevel="Info" PlaySpeechMyself="True" UseTTSTextExpression="上下AC" UseTTSVolumeExpression="0" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[93,0,100],&quot;facing&quot;:4.713,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="上下AC" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[107,0,100],&quot;facing&quot;:1.571,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="上下AC" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:14},&quot;pos&quot;:[100,0,107],&quot;facing&quot;:3.14,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="上下AC" UseTTSRateExpression="2" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:烈火牙id}].y}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:创兽次数}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="9660584b-fe82-4b66-a5b2-f2c86c602c59" Name="蓝火提示地板" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Sequential="True" Name="开场设置变量" Id="551066e4-6d61-4860-abb0-cf906af9448d" RegularExpression="^.{14} (?:\w+ )00:0039::(戦闘開始！|Engage!|战斗开始！|戰鬥開始！)" PeriodRefire="Deny" RefirePeriodExpression="2000">
+            <Actions>
+              <Action OrderNumber="1" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableName="snakeset" ListVariableExpression="1" ListVariableIndex="1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="2" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="3" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="4" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="5" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="6" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="7" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="8" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="9" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="10" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="11" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="12" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="13" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="14" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="15" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="18" ListVariableOp="Insert" ListVariableName="snake" ListVariableExpression="1" ListVariableIndex="16" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="地板提示" Id="5b469562-de97-4ad4-9d1b-5efa6a7e2b8d" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e [${lvar:snake[1]}][${lvar:snake[2]}][${lvar:snake[3]}][${lvar:snake[4]}]" ActionType="NamedCallback" ExecutionDelayExpression="3000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[85,0,90],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[1]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[95,0,90],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[2]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[105,0,90],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[3]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[115,0,90],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[4]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/e [${lvar:snake[5]}][${lvar:snake[6]}][${lvar:snake[7]}][${lvar:snake[8]}]" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[85,0,100],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[5]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[95,0,100],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[6]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[105,0,100],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[7]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[115,0,100],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[8]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="11" NamedCallbackName="command" NamedCallbackParam="/e [${lvar:snake[9]}][${lvar:snake[10]}][${lvar:snake[11]}][${lvar:snake[12]}]" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" JsonEndpointExpression="http://127.0.0.1:8001/rpc" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[9]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="13" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[95,0,110],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[10]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="14" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[105,0,110],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[11]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="15" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[115,0,110],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[12]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="16" NamedCallbackName="command" NamedCallbackParam="/e [${lvar:snake[13]}][${lvar:snake[14]}][${lvar:snake[15]}][${lvar:snake[16]}]" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[85,0,120],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[13]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="18" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[95,0,120],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[14]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="19" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[105,0,120],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[15]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="20" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,0,1,0.5],&quot;line&quot;:[0,0,1,0.5],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:10,&quot;range&quot;:10},&quot;pos&quot;:[115,0,120],&quot;facing&quot;:3.14,&quot;duration&quot;:10}" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:snake[16]}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="21" TriggerId="551066e4-6d61-4860-abb0-cf906af9448d" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="22" ListVariableName="snakeset" ListVariableExpression="1" ListVariableIndex="1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="读条重置" Id="43e06dda-203a-48bb-9708-404f7dc83c58" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:78F7:">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="551066e4-6d61-4860-abb0-cf906af9448d" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="设置地板变量" Id="3ba3163f-ccb7-4378-add8-e7a44098e89c" RegularExpression="^snake_tid:(?&lt;tid&gt;.+?)$" MutexToCapture="snake">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="画蛇" VariableExpression="${zid}" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="1" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="2" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="3" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="4" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="5" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="6" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="7" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="8" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="9" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="11" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="10" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="12" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="11" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="13" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="12" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="14" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="13" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="15" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="14" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-95)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="16" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="15" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-105)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="17" ListVariableOp="Set" ListVariableName="snake" ListVariableExpression="0" ListVariableIndex="16" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${_ffxiventity[${tid}].y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="储存地板变量" Id="71bd1e3d-4f5b-460c-9bd3-8ebde88cdf7a" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:">
+            <Actions>
+              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="snakeset" ListVariableExpression="${tid}" ListVariableIndex="1" ActionType="ListVariable" Description="#记录13&#xD;&#xA;^.{14} StartsCasting 14:.+?:63D4:.+?:5.70:(83.74:83.74|116.26:116.26):&#xD;&#xA;one_sport 0 4">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="主触发" Id="e0ea2e70-b567-4bdf-944f-92a8affa6cbf" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:" PeriodRefire="Deny" RefirePeriodExpression="5000">
+            <Actions>
+              <Action OrderNumber="1" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[1]}" ActionType="Trigger" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" NamedCallbackName="command" NamedCallbackParam="/e 222" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[1]}" Enabled="False" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[2]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[3]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[4]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[5]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[6]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[7]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[8]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[9]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[10]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[11]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[12]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[13]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[14]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[15]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" ListVariableOp="Insert" ListVariableName="tid_list" ListVariableExpression="${tid}" ListVariableIndex="1" TriggerId="3ba3163f-ccb7-4378-add8-e7a44098e89c" TriggerText="snake_tid:${lvar:snakeset[16]}" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="c897ffae-cdaa-4866-916b-82ebf43576a3" Name="四重（只有第一次）" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="设置炎灵蛇变量" Id="92cdeef7-cee8-427c-9497-924e288a6407" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7925:[^:]*:.{8}:[^:]*:.\.700:(?&lt;x&gt;[^:]*):(?&lt;y&gt;[^:]*):(?&lt;z&gt;[^:]*):">
+            <Actions>
+              <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ListVariableExpression="1" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ListVariableExpression="2" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${y}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ListVariableExpression="3" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${x}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ListVariableExpression="4" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${y}-115)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${numeric:abs(${x}-85)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericLessEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" LogMessageText="System:炎灵蛇处理" LogProcess="True" OBSEndPoint="" Enabled="False" ActionType="LogMessage" ExecutionDelayExpression="300" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="四重火炎风暴" Id="407ccec9-ba8c-4589-86c4-2b14ecdd90e3" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:78F2:">
+            <Actions>
+              <Action OrderNumber="1" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="处理灵炎蛇机制" Id="be8b0687-dc2c-4536-9254-c643f05f71c6" RegularExpression="System:炎灵蛇处理" RefirePeriodExpression="100">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="上A上A" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="上A上A" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="上A上A" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="上A上A" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" LogMessageText="上A上A" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="下C下C" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="下C下C" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="下C下C" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" LogMessageText="左地左地" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="左地左地" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="左地左地" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="左地左地" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" LogMessageText="右逼右逼" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="右逼右逼" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="11" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="右逼右逼" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="12" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="右逼右逼" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="13" LogMessageText="一三左上右下" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="一三左上右下" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="14" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="一三左上右下" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="15" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="一三左上右下" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="16" LogMessageText="一三左上右下" LogLevel="Info" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="二四左下右上" UseTTSRateExpression="1" ActionType="LogMessage">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="17" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[85,0,85],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="二四左下右上" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="18" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:23},&quot;pos&quot;:[115,0,115],&quot;facing&quot;:0,&quot;duration&quot;:5}" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="二四左下右上" UseTTSRateExpression="1" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[1]}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置[2]}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+              </Action>
+              <Action OrderNumber="19" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ActionType="ListVariable" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="设置炎灵蛇发动" Id="ffa8082c-7e36-41ce-8ed9-901f49c05d42" RegularExpression="^.{14} (?:\w+ )1[56]:.{8}:[^:]*:792[34]:|^.{14} (?:\w+ )14:.{8}:[^:]*:7925" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="System:炎灵蛇处理" LogProcess="True" OBSEndPoint="" ActionType="LogMessage" ExecutionDelayExpression="100" RefireInterrupt="True">
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:炎灵蛇位置.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" Enabled="False" ActionType="ListVariable" ExecutionDelayExpression="400">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="1 蛇的大钢铁" Id="3a3eb795-5171-401c-9eb5-11cb3411f4b7" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:794C:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_base_id&quot;,&quot;id&quot;:15049},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:10},&quot;pos&quot;:{&quot;key&quot;:&quot;now&quot;,&quot;value&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;me&quot;}},&quot;duration&quot;:11}}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="2 创兽炎舞（去两边|中间）" Id="e0b83b77-0742-4c11-a670-4bfd075dd8c2" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:791(?&lt;type&gt;0|1):" PeriodRefire="Deny" RefirePeriodExpression="5000">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:14},&quot;pos&quot;:[93,0,100],&quot;facing&quot;:1.571,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="去两鞭" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[93,0,100],&quot;facing&quot;:4.713,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="去中间" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:45,&quot;range&quot;:13},&quot;pos&quot;:[107,0,100],&quot;facing&quot;:1.571,&quot;duration&quot;:8}" PlaySpeechMyself="True" UseTTSTextExpression="去中间" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.1], &quot;line&quot;:[1,0.1,0.5,0.7],    &quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:6.2}, &quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}}, &quot;duration&quot;:6}}" PlaySpeechMyself="True" UseTTSTextExpression="分散分散" UseTTSRateExpression="2" ActionType="GenericJson" ExecutionDelayExpression="500">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:储存台词}" ExpressionTypeL="String" ExpressionR="分散" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="5" LogMessageText="AT_Subtitle:分散分散:10:200:-340:silianche:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="${func:substring(${numeric:${var:safe_zone}*5},5):A右A右 逼上逼上 逼下逼下 C右C右 C左C左 低下低下 低上低上 A左A左 }" UseTTSRateExpression="2" ActionType="LogMessage" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:储存台词}" ExpressionTypeL="String" ExpressionR="分散" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="6" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,255,127,0.2],&quot;line&quot;:[64,224,205,1],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:2.5},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;me&quot;}},&quot;label&quot;:&quot;22\u5206\u644a&quot;,&quot;label_at&quot;:3,&quot;label_color&quot;: [0.5,1.0,0.5],&quot;duration&quot;:6}" PlaySpeechMyself="True" UseTTSTextExpression="二二分摊" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:储存台词}" ExpressionTypeL="String" ExpressionR="分摊" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" LogMessageText="AT_Subtitle:22分摊:10:200:-340:silianche:" LogProcess="True" PlaySpeechMyself="True" UseTTSTextExpression="${func:substring(${numeric:${var:safe_zone}*5},5):A右A右 逼上逼上 逼下逼下 C右C右 C左C左 低下低下 低上低上 A左A左 }" UseTTSRateExpression="2" ActionType="LogMessage" RefireRequeue="False">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:储存台词}" ExpressionTypeL="String" ExpressionR="分摊" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" VariableName="储存台词" VariableExpression="分散" ActionType="Variable" ExecutionDelayExpression="4000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" VariableName="times" VariableExpression="${var:times}+1" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="10" TriggerId="9fc4845c-6568-48f5-95dc-4dcaec7cb331" TriggerForce="regexp,conditions" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="3 炎蛇炮（死刑）" Id="1d84ed73-5ebf-452b-b0b9-c88532b50d8c" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7945:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_base_id&quot;,&quot;id&quot;:15049},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:2,&quot;range&quot;:20},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" PlaySpeechMyself="True" UseTTSTextExpression="死刑" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="记录分散" Id="984bca34-0ab1-4e99-82d5-7e278e33fe25" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7914:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="储存台词" VariableExpression="分散" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="记录22分摊" Id="f911927f-5437-422e-970f-f3487f2808b8" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7915:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="储存台词" VariableExpression="分摊" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="4 一蛇" Id="9142dead-a0d5-478d-a703-c73e74b6d277" RegularExpression="^.{14} (?:\w+ )1A:(?&lt;type&gt;CFE|D17):[^:]*:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="18000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="5000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${var:biansnake}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="开场变量重置" Id="4774b52c-08e3-4a32-9a13-639f00f3e74c" RegularExpression="战斗开始|戦闘開始|Battle commencing in|戰鬥開始">
+        <Actions>
+          <Action OrderNumber="1" OBSEndPoint="" VariableName="第几次地板" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSEndPoint="" VariableName="创兽次数" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" OBSEndPoint="" VariableName="P8S门神阶段" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" OBSEndPoint="" VariableName="Bloodrake" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" OBSEndPoint="" VariableOp="UnsetRegex" VariableName=".{3}id" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" ListVariableName="四连车" ListVariableExpression="冲锋击退" PlaySpeechMyself="True" UseTTSTextExpression="去两鞭" UseTTSRateExpression="2" VariableOp="SetString" VariableName="四连车" VariableExpression="冲锋击退" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="false" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="7" ListVariableName="四连车安全区" ListVariableExpression="冲锋击退" PlaySpeechMyself="True" UseTTSTextExpression="去两鞭" UseTTSRateExpression="2" VariableOp="SetString" VariableName="四连车" VariableExpression="冲锋击退" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="false" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="8" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="テトラフレア（即时22分摊）" Id="988ad2a6-4222-446d-9172-dccd611c29ba" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:791E:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,255,127,0.2],&quot;line&quot;:[64,224,205,1],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:2.5},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;me&quot;}},&quot;label&quot;:&quot;22\u5206\u644a&quot;,&quot;label_at&quot;:3,&quot;label_color&quot;: [0.5,1.0,0.5],&quot;duration&quot;:6}" PlaySpeechMyself="True" UseTTSTextExpression="二二分摊" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="5 暴怒重踏（踩地板）" Id="39711f31-bafa-4691-b770-1c11adb50556" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7933:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.1], &quot;line&quot;:[1,0.1,0.5,0.7],    &quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:6}, &quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}}, &quot;duration&quot;:14}}" PlaySpeechMyself="True" UseTTSTextExpression="八方分散" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
