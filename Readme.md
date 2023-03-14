@@ -60,8 +60,9 @@ FFdraw的安装与说明请参考: https://github.com/nyaoouo/FFDraw
 
 ## p8s-本体
 
+- [x] 左右半场AOE
+- [x] 万象灰烬分散
 - [ ] 最后阶段塔的分布
-- [ ] 左右半场AOE
 - [ ] 横向直线AOE第几排安全
 - [ ] 其他buff类分摊等
 

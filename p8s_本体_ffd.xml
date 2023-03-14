@@ -1,8 +1,43 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedTrigger Enabled="false" Name="P8S-本体" Id="79a9e2b9-a8aa-4188-ad41-1eda42e6b659" RegularExpression="">
-    <Actions />
-    <Condition Enabled="false" Grouping="Or" />
-    <Conditions />
-  </ExportedTrigger>
+  <ExportedFolder Id="1e7e9454-773b-4c30-84ac-e86fc91c7213" Name="P8S-本体" Enabled="true">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Name="万象灰烬（分散分散）" Id="3d2333c9-2707-4f9f-bc28-cdf8a8f884cc" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:75ED:" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.1], &quot;line&quot;:[1,0.1,0.5,0.7],    &quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:6}, &quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}}, &quot;duration&quot;:8}}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="灰烬焰息（半场刀）" Id="ea28f1df-c21d-47ca-965d-2c50c4285af3" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:79D(?&lt;type&gt;7|8):" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="去右鞭" UseTTSRateExpression="2" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.4],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:50,&quot;range&quot;:50},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:-1.571,&quot;duration&quot;:5}" PlaySpeechMyself="True" UseTTSTextExpression="去右鞭" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" PlaySpeechMyself="True" UseTTSTextExpression="去左鞭" UseTTSRateExpression="2" ActionType="UseTTS">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.4],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:50,&quot;range&quot;:50},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:1.571,&quot;duration&quot;:5}" PlaySpeechMyself="True" UseTTSTextExpression="去左鞭" UseTTSRateExpression="2" ActionType="GenericJson">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
 </TriggernometryExport>
