@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="1e7e9454-773b-4c30-84ac-e86fc91c7213" Name="P8S-本体" Enabled="true">
+  <ExportedFolder Id="1e7e9454-773b-4c30-84ac-e86fc91c7213" Name="P8S-本体" Enabled="false">
     <Folders />
     <Triggers>
       <Trigger Enabled="true" Name="万象灰烬（分散分散）" Id="3d2333c9-2707-4f9f-bc28-cdf8a8f884cc" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:75ED:" PeriodRefire="Deny" RefirePeriodExpression="100">
@@ -10,11 +10,10 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="灰烬焰息（半场刀）" Id="ea28f1df-c21d-47ca-965d-2c50c4285af3" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:79D(?&lt;type&gt;7|8):" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
-          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="去右鞭" UseTTSRateExpression="2" ActionType="UseTTS">
+          <Action OrderNumber="1" LogMessageText="去右鞭" LogLevel="Info" PlaySpeechMyself="True" UseTTSTextExpression="去右鞭" UseTTSRateExpression="2" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
@@ -24,7 +23,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Action>
-          <Action OrderNumber="3" PlaySpeechMyself="True" UseTTSTextExpression="去左鞭" UseTTSRateExpression="2" ActionType="UseTTS">
+          <Action OrderNumber="3" LogMessageText="去左鞭" LogLevel="Info" PlaySpeechMyself="True" UseTTSTextExpression="去左鞭" UseTTSRateExpression="2" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
@@ -33,6 +32,14 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="获取本体id" Id="07c81e88-0851-465a-9bea-95de0acb7061" RegularExpression="^.{14} (?:\w+ )14:(?&lt;id&gt;.{8}):[^:]*:79DF:">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="本体id" VariableExpression="${numeric:hex2dec(${id})}" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
