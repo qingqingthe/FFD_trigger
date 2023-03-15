@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="55b30c7a-ccf1-46b7-9646-07aea4a67e26" Name="P8S-门神" Enabled="true">
+  <ExportedFolder Id="55b30c7a-ccf1-46b7-9646-07aea4a67e26" Name="P8S-门神" Enabled="false">
     <Folders>
       <Folder Id="54fc7608-224a-42ce-849f-248d31d80d38" Name="分身机制" Enabled="true">
         <Folders />
@@ -12,7 +12,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="获取炎之翼（凤）" Id="7c5542d1-9707-424b-b678-361e3c5971e9" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7953:">
             <Actions>
@@ -21,7 +20,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="创兽炎舞（计算阶段）" Id="338d5602-53a6-452a-ad1d-7b7e5d3b3034" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7950:">
             <Actions>
@@ -30,7 +28,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="0创造幻影/切换阶段" Id="3b810e63-5008-447a-9720-efcb8ec1f2ed" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:791C:">
             <Actions>
@@ -42,7 +39,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Sequential="True" Name="1第1次分身安全区" Id="6607da03-1518-4e55-8d0e-c70ac1a6228a" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7952:" RefirePeriodExpression="1000">
             <Actions>
@@ -125,7 +121,6 @@
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${var:创兽次数}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -190,7 +185,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Sequential="True" Name="地板提示" Id="5b469562-de97-4ad4-9d1b-5efa6a7e2b8d" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -294,7 +288,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="读条重置" Id="43e06dda-203a-48bb-9708-404f7dc83c58" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:78F7:">
             <Actions>
@@ -303,7 +296,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="设置地板变量" Id="3ba3163f-ccb7-4378-add8-e7a44098e89c" RegularExpression="^snake_tid:(?&lt;tid&gt;.+?)$" MutexToCapture="snake">
             <Actions>
@@ -408,7 +400,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="储存地板变量" Id="71bd1e3d-4f5b-460c-9bd3-8ebde88cdf7a" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:">
             <Actions>
@@ -417,7 +408,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Sequential="True" Name="主触发" Id="e0ea2e70-b567-4bdf-944f-92a8affa6cbf" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:7927:" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
@@ -474,7 +464,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -514,7 +503,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="四重火炎风暴" Id="407ccec9-ba8c-4589-86c4-2b14ecdd90e3" RegularExpression="^.{14} (?:\w+ )14:(?&lt;tid&gt;.{8}):[^:]*:78F2:">
             <Actions>
@@ -523,7 +511,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="处理灵炎蛇机制" Id="be8b0687-dc2c-4536-9254-c643f05f71c6" RegularExpression="System:炎灵蛇处理" RefirePeriodExpression="100">
             <Actions>
@@ -748,7 +735,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="设置炎灵蛇发动" Id="ffa8082c-7e36-41ce-8ed9-901f49c05d42" RegularExpression="^.{14} (?:\w+ )1[56]:.{8}:[^:]*:792[34]:|^.{14} (?:\w+ )14:.{8}:[^:]*:7925" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -762,7 +748,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -770,7 +755,10 @@
     <Triggers>
       <Trigger Enabled="true" Name="1 蛇的大钢铁" Id="3a3eb795-5171-401c-9eb5-11cb3411f4b7" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:794C:" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
-          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_base_id&quot;,&quot;id&quot;:15049},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:10},&quot;pos&quot;:{&quot;key&quot;:&quot;now&quot;,&quot;value&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;me&quot;}},&quot;duration&quot;:11}}" ActionType="GenericJson">
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[1,0.1,0.5,0.3],&quot;line&quot;:[1,0.1,0.5,0.7],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:10},&quot;pos&quot;:{&quot;key&quot;:&quot;now&quot;,&quot;value&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:${var:门神id}}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;me&quot;}},&quot;duration&quot;:11}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="biansnake" VariableExpression="${var:biansnake}+1" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -827,7 +815,7 @@
       </Trigger>
       <Trigger Enabled="true" Name="3 炎蛇炮（死刑）" Id="1d84ed73-5ebf-452b-b0b9-c88532b50d8c" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7945:" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
-          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_base_id&quot;,&quot;id&quot;:15049},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:2,&quot;range&quot;:20},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" PlaySpeechMyself="True" UseTTSTextExpression="死刑" UseTTSRateExpression="2" ActionType="GenericJson">
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:2,&quot;range&quot;:20},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:${var:门神id}},&quot;duration&quot;:5}" PlaySpeechMyself="True" UseTTSTextExpression="死刑" UseTTSRateExpression="2" ActionType="GenericJson">
             <Condition Enabled="false" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
@@ -842,7 +830,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="记录22分摊" Id="f911927f-5437-422e-970f-f3487f2808b8" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7915:" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
@@ -851,28 +838,29 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Name="4 一蛇" Id="9142dead-a0d5-478d-a703-c73e74b6d277" RegularExpression="^.{14} (?:\w+ )1A:(?&lt;type&gt;CFE|D17):[^:]*:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):">
+      <Trigger Enabled="true" Name="7 二蛇" Id="9142dead-a0d5-478d-a703-c73e74b6d277" RegularExpression="^.{14} (?:\w+ )1A:(?&lt;type&gt;CFE|D17):[^:]*:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="500">
         <Actions>
-          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="18000">
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;lt&quot;,&quot;v1&quot;:{&quot;key&quot;:&quot;actor_status_remain&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;v2&quot;:6},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="18000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;lt&quot;,&quot;v1&quot;:{&quot;key&quot;:&quot;actor_status_remain&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;v2&quot;:6},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:0,&quot;duration&quot;:5}}" ActionType="GenericJson">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="5000">
+          <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="5000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;surface&quot;:[0,255,127,0.2],&quot;line&quot;:[64,224,205,1],&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3327},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:0,&quot;duration&quot;:10,&quot;label&quot;:&quot;44\u5206\u7ec4\u5206\u644a&quot;,&quot;label_at&quot;:3,&quot;label_color&quot;:[0.5,1.0,0.5]}}" ActionType="GenericJson" ExecutionDelayExpression="5000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="true" Grouping="And">
           <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-          <ConditionSingle Enabled="true" ExpressionL="${var:biansnake}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${var:biansnake}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="开场变量重置" Id="4774b52c-08e3-4a32-9a13-639f00f3e74c" RegularExpression="战斗开始|戦闘開始|Battle commencing in|戰鬥開始">
         <Actions>
@@ -904,9 +892,11 @@
           <Action OrderNumber="8" ListVariableExpressionType="Numeric" ListVariableName="炎灵蛇位置" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
+          <Action OrderNumber="9" VariableOp="SetString" VariableName="biansnake" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="テトラフレア（即时22分摊）" Id="988ad2a6-4222-446d-9172-dccd611c29ba" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:791E:" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
@@ -917,7 +907,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="5 暴怒重踏（踩地板）" Id="39711f31-bafa-4691-b770-1c11adb50556" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:7933:" PeriodRefire="Deny" RefirePeriodExpression="100">
         <Actions>
@@ -928,6 +917,53 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="获取门神id" Id="b6be7e70-4ca4-4732-96c8-55366da603d5" RegularExpression="^.{14} (?:\w+ )14:(?&lt;id&gt;.{8}):[^:]*:7944:">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetString" VariableName="门神id" VariableExpression="${numeric:hex2dec(${id})}" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="6 多重操炎" Id="5e7d4fad-c14c-483e-9e98-a9af94de6ab3" RegularExpression="^.{14} (?:\w+ )15:.{8}:[^:]*:72CE:[^:]*:(?&lt;playerId&gt;1.{7}):(?&lt;Name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="2000">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3414},&quot;true&quot;:0,&quot;false&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:2,&quot;range&quot;:20}},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:{&quot;key&quot;:&quot;actor_relative_facing&quot;,&quot;src&quot;:${var:门神id},&quot;dst&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="テトラフレア（即时分散）" Id="bd9298fb-c83f-4b34-bb8c-0c89c333feef" RegularExpression="^.{14} (?:\w+ )14:.{8}:[^:]*:(791D|7921):" PeriodRefire="Deny" RefirePeriodExpression="100">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;rect&quot;,&quot;width&quot;:2,&quot;range&quot;:35},&quot;pos&quot;:[100,0,100],&quot;facing&quot;:{&quot;key&quot;:&quot;actor_relative_facing&quot;,&quot;src&quot;:${var:门神id},&quot;dst&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+      <Trigger Enabled="true" Name="4 一蛇" Id="9dbb0e4c-365d-40f0-80e7-3cab146d1933" RegularExpression="^.{14} (?:\w+ )1A:(?&lt;type&gt;CFE|D17):[^:]*:(?&lt;second&gt;[^:]*):[0-9A-F]{8}::(?&lt;pid&gt;1[0-9A-F]{7}):(?&lt;name&gt;[^:]*):" PeriodRefire="Deny" RefirePeriodExpression="500">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="18000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3004},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3351},&quot;true&quot;:{&quot;key&quot;:&quot;fan&quot;,&quot;deg&quot;:30,&quot;range&quot;:30},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="5000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" JsonEndpointExpression="http://127.0.0.1:8001/rpc" JsonPayloadExpression="{&quot;cmd&quot;:&quot;foreach&quot;,&quot;name&quot;:&quot;target_id&quot;,&quot;values&quot;:{&quot;key&quot;:&quot;actors_by_type&quot;,&quot;type&quot;:1},&quot;func&quot;:{&quot;cmd&quot;:&quot;add_omen&quot;,&quot;color&quot;:&quot;enemy&quot;,&quot;shape_scale&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3005},&quot;true&quot;:{&quot;key&quot;:&quot;if&quot;,&quot;cond&quot;:{&quot;key&quot;:&quot;actor_has_status&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;},&quot;status_id&quot;:3326},&quot;true&quot;:{&quot;key&quot;:&quot;circle&quot;,&quot;range&quot;:5},&quot;false&quot;:0},&quot;false&quot;:0},&quot;pos&quot;:{&quot;key&quot;:&quot;actor_pos&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;facing&quot;:{&quot;key&quot;:&quot;actor_facing&quot;,&quot;id&quot;:{&quot;key&quot;:&quot;arg&quot;,&quot;name&quot;:&quot;target_id&quot;}},&quot;duration&quot;:5}}" ActionType="GenericJson" ExecutionDelayExpression="3000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+          <ConditionSingle Enabled="true" ExpressionL="${var:biansnake}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
         <Conditions />
       </Trigger>
     </Triggers>
