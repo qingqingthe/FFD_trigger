@@ -79,3 +79,8 @@ FFdraw的安装与说明请参考: https://github.com/nyaoouo/FFDraw
 
 莫灵喵 https://space.bilibili.com/220756407/
 
+
+
+# About
+
+Discord Greedy#0027
